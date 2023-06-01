@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <CardLayout style="max-width: 256px; max-height: 256px">
-    <img :id="id" :src="src" alt="Input Image" />
-  </CardLayout>
+  <div>
+    <img :id="id" :src="src" alt="Input Image" style="max-width: 100%" />
+  </div>
 </template>
