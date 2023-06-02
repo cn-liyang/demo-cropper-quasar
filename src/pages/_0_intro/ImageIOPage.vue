@@ -12,6 +12,6 @@ async function asyncInputImageFile(file: File) {
 <template>
   <div class="column items-center q-gutter-y-md">
     <InputFileImage @action="asyncInputImageFile" />
-    <InputImage :id="inputId" :src="srcModel" />
+    <InputImage v-if="srcModel" :id="inputId" :src="srcModel" />
   </div>
 </template>

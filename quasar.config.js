@@ -101,6 +101,7 @@ module.exports = configure(function (ctx) {
                 "@vueuse/core": [["get", "getRef"], ["set", "setRef"], "invoke", "toValue"],
               },
               "quasar",
+              { uid: ["uid"] },
             ],
             dirs: ["src/boot/**", "src/composable/**", "src/router/**", "src/stores/**"],
             dts: true,
