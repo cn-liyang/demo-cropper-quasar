@@ -21,6 +21,16 @@ const routeChildrenMain: RouteRecordRaw[] = [
       link: "https://docs.opencv.org/4.5.0/df/d24/tutorial_js_image_display.html",
     },
   },
+  {
+    path: "1",
+    component: () => import("pages/_1_/ImageDialogPage.vue"),
+    meta: {
+      title: "图像 IO",
+      caption: "Image Read and Show Example",
+      icon: "mdi-seed-plus-outline",
+      link: "https://docs.opencv.org/4.5.0/df/d24/tutorial_js_image_display.html",
+    },
+  },
 ];
 
 export default routeChildrenMain;

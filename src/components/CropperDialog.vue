@@ -20,9 +20,11 @@ tryOnMounted(() => {
 </script>
 
 <template>
-  <CardLayout style="max-width: 640px">
-    <div>
-      <img :id="id" :src="src" alt="Input Image" style="max-width: 100%" />
+  <q-dialog v-model="alert">
+    <div style="max-width: 640px; max-height: 640px">
+      <div>
+        <img :id="id" :src="src" alt="Input Image" style="max-width: 100%" />
+      </div>
     </div>
-  </CardLayout>
+  </q-dialog>
 </template>
