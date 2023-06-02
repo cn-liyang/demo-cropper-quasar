@@ -10,8 +10,8 @@ const cropperDialogImgId = uid();
 
 let cropper: Cropper;
 
-function onLoad() {
-  cropper = new Cropper(<HTMLImageElement>document.getElementById(cropperDialogImgId), {
+function onLoad(id: string) {
+  return new Cropper(<HTMLImageElement>document.getElementById(id), {
     viewMode: 1,
     dragMode: "move",
     aspectRatio: 1.58,
@@ -31,8 +31,14 @@ function onLoad() {
         <q-space />
         <q-btn v-close-popup dense flat icon="close" />
       </q-bar>
-      <q-card-section horizontal style="width: 100%; height: 100%">
-        <img :id="cropperDialogImgId" @load="onLoad()" :src="src" alt="Input Image" style="width: 100%" />
+      <q-card-section horizontal style="width: 100%">
+        <img
+          :id="cropperDialogImgId"
+          @load="cropper = onLoad(cropperDialogImgId)"
+          :src="src"
+          alt="Input Image"
+          style="width: 100%"
+        />
       </q-card-section>
       <CropperDialogActions :cropper="cropper" />
     </q-card>
