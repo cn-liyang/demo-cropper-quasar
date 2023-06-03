@@ -15,7 +15,7 @@ function onLoad(id: string) {
     viewMode: 1,
     dragMode: "move",
     aspectRatio: 1.58,
-    autoCropArea: 0.9,
+    autoCropArea: 1,
     cropBoxMovable: false,
     cropBoxResizable: false,
     toggleDragModeOnDblclick: false,
@@ -30,7 +30,7 @@ function onLoad(id: string) {
       @load="cropper = onLoad(cropperDialogImgId)"
       :src="src"
       alt="Input Image"
-      style="max-width: 100%; max-height: 100%"
+      style="max-width: 100%"
     />
     <CropperDialogSticky :cropper="cropper" />
   </DialogLayout>

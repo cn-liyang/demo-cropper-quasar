@@ -2,11 +2,13 @@
 defineProps<{
   title: string;
 }>();
+
+const { getQDialogComponentHeight } = useRectQDialogComponentGlobalSessionStorage();
 </script>
 
 <template>
   <q-dialog full-width full-height persistent>
-    <q-layout view="hHh LpR fFf" container>
+    <q-layout view="hHh LpR fFf" container class="bg-white">
       <q-header>
         <q-bar>
           <span class="text-body2">{{ title }}</span>
@@ -15,7 +17,7 @@ defineProps<{
         </q-bar>
       </q-header>
       <q-page-container>
-        <q-page>
+        <q-page :style="`max-height: ${getQDialogComponentHeight() - 32}px`">
           <slot />
         </q-page>
       </q-page-container>
