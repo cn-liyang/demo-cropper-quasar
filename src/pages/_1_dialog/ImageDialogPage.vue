@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { ready, start } = useTimeoutProvidingState(5000);
+const { ready, start } = useTimeoutProvidingState(2000);
 const cropperDialogToggle = ref(false);
 const srcModel = ref("");
 
