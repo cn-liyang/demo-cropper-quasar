@@ -1,8 +1,10 @@
 <script lang="ts" setup>
+const { ready, start } = useTimeoutProvidingState(5000);
 const cropperDialogToggle = ref(false);
 const srcModel = ref("");
 
 async function asyncInputImageFile(file: File) {
+  start();
   const dataUrl = await asyncAltImageFile2DataUrl(file);
   setRef(srcModel, dataUrl);
   setRef(cropperDialogToggle, true);
@@ -14,5 +16,5 @@ async function asyncInputImageFile(file: File) {
     <InputFileImage @action="asyncInputImageFile" />
   </div>
 
-  <CropperDialog v-model="cropperDialogToggle" :src="srcModel" />
+  <CropperDialog v-model="cropperDialogToggle" :imgSrc="srcModel" />
 </template>
