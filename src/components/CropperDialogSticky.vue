@@ -1,65 +1,30 @@
 <script lang="ts" setup>
-import Cropper from "cropperjs";
-
-const props = defineProps<{
-  cropper: Cropper;
-}>();
-
-function doRotateR() {
-  props.cropper.rotate(1);
-}
-
-function doRotateL() {
-  props.cropper.rotate(-1);
-}
-
-function doRotateR90() {
-  props.cropper.rotate(90);
-}
-
-function doRotateL90() {
-  props.cropper.rotate(-90);
-}
-
-function doReset() {
-  props.cropper.reset();
-}
-
-function doZoomI() {
-  props.cropper.zoom(0.05);
-}
-
-function doZoomO() {
-  props.cropper.zoom(-0.05);
-}
-
-function doMoveL() {
-  props.cropper.move(-10, 0);
-}
-
-function doMoveR() {
-  props.cropper.move(10, 0);
-}
-
-function doMoveU() {
-  props.cropper.move(0, -10);
-}
-
-function doMoveD() {
-  props.cropper.move(0, 10);
-}
-
-function doCrop() {
-  const htmlCanvasElement = props.cropper.crop().getCroppedCanvas();
-  const dataURL = htmlCanvasElement.toDataURL();
-  console.log("dataURL", dataURL);
-}
+const {
+  doZoomI,
+  doZoomO,
+  doMoveL,
+  doMoveR,
+  doMoveU,
+  doMoveD,
+  doRotateR,
+  doRotateL,
+  doRotateR90,
+  doRotateL90,
+  doReset,
+  doCrop,
+} = useCropperInjectedStateOrDefault();
 </script>
 
 <template>
   <q-page-sticky position="bottom" :offset="[0, 18]" class="column">
     <div class="column q-gutter-y-sm">
       <q-btn-group rounded spread>
+        <q-btn fab-mini push color="dark" icon="zoom_in" @click.prevent="doZoomI()">
+          <q-tooltip>放大</q-tooltip>
+        </q-btn>
+        <q-btn fab-mini push color="dark" icon="zoom_out" @click.prevent="doZoomO()">
+          <q-tooltip>缩小</q-tooltip>
+        </q-btn>
         <q-btn fab-mini push color="dark" icon="arrow_back" @click.prevent="doMoveL()">
           <q-tooltip>左移</q-tooltip>
         </q-btn>
@@ -71,12 +36,6 @@ function doCrop() {
         </q-btn>
         <q-btn fab-mini push color="dark" icon="arrow_downward" @click.prevent="doMoveD()">
           <q-tooltip>下移</q-tooltip>
-        </q-btn>
-        <q-btn fab-mini push color="dark" icon="zoom_in" @click.prevent="doZoomI()">
-          <q-tooltip>放大</q-tooltip>
-        </q-btn>
-        <q-btn fab-mini push color="dark" icon="zoom_out" @click.prevent="doZoomO()">
-          <q-tooltip>缩小</q-tooltip>
         </q-btn>
       </q-btn-group>
       <q-btn-group rounded spread>
