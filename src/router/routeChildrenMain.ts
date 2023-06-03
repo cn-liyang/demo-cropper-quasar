@@ -23,9 +23,9 @@ const routeChildrenMain: RouteRecordRaw[] = [
   },
   {
     path: "1",
-    component: () => import("pages/_1_/ImageDialogPage.vue"),
+    component: () => import("pages/_1_dialog/ImageDialogPage.vue"),
     meta: {
-      title: "图像会话",
+      title: "图像弹框布局",
       caption: "",
       icon: "mdi-seed-plus-outline",
       link: "https://fengyuanchen.github.io/cropperjs",

@@ -24,23 +24,14 @@ function onLoad(id: string) {
 </script>
 
 <template>
-  <q-dialog full-width full-height persistent>
-    <q-card flat>
-      <q-bar class="bg-primary text-white">
-        <span class="text-body2">图片剪裁：</span>
-        <q-space />
-        <q-btn v-close-popup dense flat icon="close" />
-      </q-bar>
-      <q-card-section horizontal style="width: 100%">
-        <img
-          :id="cropperDialogImgId"
-          @load="cropper = onLoad(cropperDialogImgId)"
-          :src="src"
-          alt="Input Image"
-          style="width: 100%"
-        />
-      </q-card-section>
-      <CropperDialogActions :cropper="cropper" />
-    </q-card>
-  </q-dialog>
+  <DialogLayout title="图片剪裁">
+    <img
+      :id="cropperDialogImgId"
+      @load="cropper = onLoad(cropperDialogImgId)"
+      :src="src"
+      alt="Input Image"
+      style="max-width: 100%; max-height: 100%"
+    />
+    <CropperDialogSticky :cropper="cropper" />
+  </DialogLayout>
 </template>
