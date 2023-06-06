@@ -2,8 +2,6 @@
 defineProps<{
   title: string;
 }>();
-
-const { getQDialogComponentHeight } = useRectQDialogComponentGlobalSessionStorage();
 </script>
 
 <template>
