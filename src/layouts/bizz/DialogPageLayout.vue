@@ -17,7 +17,7 @@ const { getQDialogComponentHeight } = useRectQDialogComponentGlobalSessionStorag
         </q-bar>
       </q-header>
       <q-page-container>
-        <q-page :style="`max-height: ${getQDialogComponentHeight() - 32}px`">
+        <q-page>
           <slot />
         </q-page>
       </q-page-container>
